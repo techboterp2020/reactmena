@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_barcode_label_print_new">
+        <div class="page">
+            <t t-call="techbot_barcode_customisation.product_barcode_custom_report">
+            </t>
+        </div>
+    </template>
+
+    <template id="product_barcode_custom_report">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="product_list" t-as="o">
+                    <t t-foreach="range(0,count)" t-as="t">
+                        <t t-foreach="range(0,o['qty_done'])" t-as="k">
+                             <header>
+                            <div style="height:0.3em;">
+                                <br/>
+                            </div>
+                        </header>
+                                <table width="100%" height="15%">
+                                    <tr>
+                                        <td align="left" style="font-size:9px;" width="60%">
+                                            <span t-esc="o['company_name']"/>
+                                        </td>
+                                        <td align="center" style="font-size:9px;" width="50%">
+                                            <span t-esc="o['telephone']"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <table width="100%" height="85% ">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center align-middle">
+                                            <span>
+                                                <div t-esc="o['barcode']"
+                                                     t-options="{'widget': 'barcode', 'width': 900, 'height': 300   , 'img_style': 'width:100%;height:30%;'}"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:12px; text-align:center;">
+                                            <span t-esc="o['display_name']"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </t>
+                </t>
+            </div>
+            <p style="page-break-before:always;"></p>
+        </t>
+    </template>
+
+
+</odoo>
