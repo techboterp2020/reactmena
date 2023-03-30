@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-        <record id="paperformat_barcode_10_100_label" model="report.paperformat">
+    <record id="paperformat_barcode_10_100_label" model="report.paperformat">
         <field name="name">Label</field>
         <field name="default" eval="True"/>
         <field name="format">custom</field>
@@ -19,15 +19,27 @@
     </record>
 
 
-        <report
+    <report
             id="custom_barcode_label_print"
             model="product.label.layout"
-            string="Product Barcode 10x100"
+            string="Product Barcode 50x100"
             report_type="qweb-pdf"
             name="techbot_barcode_customisation.custom_barcode_label_print_new"
             file="techbot_barcode_customisation.custom_barcode_label_print_new"
             paperformat="paperformat_barcode_10_100_label"
             attachment_use="False"
     />
+
+    <report
+            id="custom_barcode_lot_print_action"
+            model="stock.lot"
+            string="Lot/Serial No 50x100"
+            report_type="qweb-pdf"
+            name="techbot_barcode_customisation.product_barcode_lot_report"
+            file="techbot_barcode_customisation.product_barcode_lot_report"
+            paperformat="paperformat_barcode_10_100_label"
+            attachment_use="False"
+    />
+
 
 </odoo>

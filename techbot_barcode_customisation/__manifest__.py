@@ -7,8 +7,9 @@
     'author': 'Techbot',
     'depends': ['stock'],
     'data': [
-        'reports/report.xml',
         'reports/barcode_template.xml',
+        'reports/lot_template.xml',
+        'reports/report.xml',
     ],
     'license': 'AGPL-3',
     'installable': True,
