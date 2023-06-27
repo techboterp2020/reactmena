@@ -13,28 +13,34 @@
                 <t t-foreach="product_list" t-as="o">
                     <t t-foreach="range(0,count)" t-as="t">
                         <t t-foreach="range(0,o['qty_done'])" t-as="k">
-                             <header>
-                            <div style="height:0.3em;">
-                                <br/>
-                            </div>
-                        </header>
-                                <table width="100%" height="15%">
-                                    <tr>
-                                        <td align="left" style="font-size:9px;" width="60%">
-                                            <span t-esc="o['company_name']"/>
-                                        </td>
-                                        <td align="center" style="font-size:9px;" width="50%">
-                                            <span t-esc="o['telephone']"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            <table width="100%" height="85% ">
+                            <header>
+                                <div style="height:0.3em;">
+                                    <br/>
+                                </div>
+                            </header>
+                            <table width="100%" height="15%">
+                                <tr>
+                                    <td  style="font-size:10px;" align="middle" width="50%">
+                                        <span t-esc="o['company_name']"/>
+                                    </td>
+                                    <td style="width=50%">
+                                        <t t-foreach="docs.get_company_data().values()" t-as="company_data">
+                                        <img t-if="company_data.barcode_logo" t-att-src="image_data_uri(company_data.barcode_logo)"
+                                             style="width: 60px;height: 50px;" alt="Logo"/>
+                                        </t>
+                                    </td>
+                                    <td align="center" style="font-size:10px;" width="50%">
+                                        <span t-esc="o['telephone']"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" height="65% ">
                                 <tbody>
                                     <tr>
                                         <td class="text-center align-middle">
                                             <span>
                                                 <div t-esc="o['barcode']"
-                                                     t-options="{'widget': 'barcode', 'width': 900, 'height': 300   , 'img_style': 'width:100%;height:30%;'}"/>
+                                                     t-options="{'widget': 'barcode', 'width': 900, 'height': 200   , 'img_style': 'width:100%;height:30%;'}"/>
                                             </span>
                                         </td>
                                     </tr>

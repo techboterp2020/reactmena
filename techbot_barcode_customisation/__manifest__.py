@@ -5,7 +5,7 @@
     'category': 'Barcode',
     'summary': """""",
     'author': 'Techbot',
-    'depends': ['stock'],
+    'depends': ['base', 'stock', 'techbot_company_customisation'],
     'data': [
         'reports/barcode_template.xml',
         'reports/lot_template.xml',

@@ -1,11 +1,12 @@
-from odoo import api, fields, models,_
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 
 class ProductLabelLayout(models.TransientModel):
     _inherit = 'product.label.layout'
 
-    print_format = fields.Selection(selection_add=[('10x100', '10mm x 100 mm'), ('zpl',)],ondelete={'10x100': 'set default'})
+    print_format = fields.Selection(selection_add=[('10x100', '10mm x 100 mm'), ('zpl',)],
+                                    ondelete={'10x100': 'set default'})
 
     def _get_report_data(self):
         product_list = []
@@ -48,8 +49,11 @@ class ProductLabelLayout(models.TransientModel):
                                      'qty_done': 1,
                                      'barcode': barcode, })
 
-        return {'count':self.custom_quantity,'product_list':product_list}
+        return {'count': self.custom_quantity, 'product_list': product_list}
 
+    def get_company_data(self):
+        company = self.env.company
+        return {'company_id': company}
 
     def process(self):
         self.ensure_one()
@@ -60,8 +64,6 @@ class ProductLabelLayout(models.TransientModel):
         if not xml_id:
             raise UserError(_('Unable to find report template for %s format', self.print_format))
 
-        report_action = self.env.ref(xml_id).report_action(None, data=data)
+        report_action = self.env.ref(xml_id).report_action(self, data=data)
         report_action.update({'close_on_report_download': False})
         return report_action
-
-
