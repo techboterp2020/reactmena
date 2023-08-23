@@ -8,6 +8,7 @@
     'depends': ['base', 'stock', 'techbot_company_customisation'],
     'data': [
         'reports/barcode_template.xml',
+        'reports/barcode_template_5_8.xml',
         'reports/lot_template.xml',
         'reports/report.xml',
     ],

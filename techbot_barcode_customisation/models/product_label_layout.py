@@ -5,8 +5,8 @@ from odoo.exceptions import UserError
 class ProductLabelLayout(models.TransientModel):
     _inherit = 'product.label.layout'
 
-    print_format = fields.Selection(selection_add=[('10x100', '10mm x 100 mm'), ('zpl',)],
-                                    ondelete={'10x100': 'set default'})
+    print_format = fields.Selection(selection_add=[('10x100', '100mm x 50 mm'), ('5.8x3.9', '58mm x 39mm'), ('zpl',)],
+                                    ondelete={'10x100': 'set default', '5.8x3.9': 'set default', })
 
     def _get_report_data(self):
         product_list = []
@@ -61,6 +61,10 @@ class ProductLabelLayout(models.TransientModel):
         if self.print_format == '10x100':
             data = self._get_report_data()
             xml_id = 'techbot_barcode_customisation.custom_barcode_label_print'
+        if self.print_format == '5.8x3.9':
+            data = self._get_report_data()
+            xml_id = 'techbot_barcode_customisation.custom_barcode_label_print_59'
+            print("Hello")
         if not xml_id:
             raise UserError(_('Unable to find report template for %s format', self.print_format))
 

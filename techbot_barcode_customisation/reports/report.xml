@@ -18,6 +18,33 @@
         <field name="dpi">96</field>
     </record>
 
+    <record id="paperformat_barcode_5_8_3_9_label" model="report.paperformat">
+        <field name="name">Label</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">39</field>
+        <field name="page_width">58</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <report
+            id="custom_barcode_label_print_59"
+            model="product.label.layout"
+            string="Product Barcode 5x3"
+            report_type="qweb-pdf"
+            name="techbot_barcode_customisation.custom_barcode_label_print_new_5_8"
+            file="techbot_barcode_customisation.custom_barcode_label_print_new_5_8"
+            paperformat="paperformat_barcode_5_8_3_9_label"
+            attachment_use="False"
+    />
 
     <report
             id="custom_barcode_label_print"
