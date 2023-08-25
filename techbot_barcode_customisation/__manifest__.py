@@ -10,6 +10,7 @@
         'reports/barcode_template.xml',
         'reports/barcode_template_5_8.xml',
         'reports/lot_template.xml',
+        'reports/lot_template_5_8.xml',
         'reports/report.xml',
     ],
     'license': 'AGPL-3',

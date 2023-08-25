@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="product_barcode_lot_report_5_8">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <header>
+                        <div style="height:0.3em;">
+                            <br/>
+                        </div>
+                    </header>
+                    <table width="100%" height="15%">
+                        <tr>
+                            <td align="left" style="font-size:9px;" width="60%">
+                                <span t-esc="o.company_id.name"/>
+                            </td>
+                            <td align="center" style="font-size:9px;" width="50%">
+                                <span t-esc="o.company_id.phone"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%" height="90% ">
+                        <tbody>
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <span>
+                                        <div t-esc="o.product_id.barcode"
+                                             t-options="{'widget': 'barcode', 'width': 900, 'height': 180   , 'img_style': 'width:100%;height:25%;'}"/>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:11px; text-align:center;white-space: normal;">
+                                    <span t-esc="o.product_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:12px; text-align:center;color:red">
+                                    <span t-esc="o.name"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+            <p style="page-break-before:always;"></p>
+        </t>
+    </template>
+
+</odoo>
