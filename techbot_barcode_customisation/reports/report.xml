@@ -67,6 +67,16 @@
             paperformat="paperformat_barcode_10_100_label"
             attachment_use="False"
     />
+    <report
+            id="custom_barcode_lot_print_action_5_8"
+            model="stock.lot"
+            string="Lot/Serial No 58x39 mm"
+            report_type="qweb-pdf"
+            name="techbot_barcode_customisation.product_barcode_lot_report_5_8"
+            file="techbot_barcode_customisation.product_barcode_lot_report_5_8"
+            paperformat="paperformat_barcode_5_8_3_9_label"
+            attachment_use="False"
+    />
 
 
 </odoo>
